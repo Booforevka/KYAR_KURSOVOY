@@ -1,0 +1,128 @@
+// Миксин для медиа-запросов, чтобы не повторять код
+@mixin respond-to($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+// Контейнер с фиксированной шириной и центрированием
+.container {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 $space-md;
+}
+
+// Главная секция с фоновым изображением
+.hero {
+    background-image: url(../../images/403726-2025-audi-a7.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+    // Полупрозрачный градиент поверх изображения
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+    }
+    
+    // Содержимое героя (текст и кнопка)
+    .hero-content {
+        position: relative;
+        z-index: 2; // Поверх псевдоэлемента
+        padding: $space-xl;
+        max-width: 50%;
+        
+        // Стили заголовка с анимацией
+        h1 {
+            font-size: 3.5rem;
+            color: $white;
+            margin: 0 0 $space-sm 0;
+            font-weight: $bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            // Применяем анимацию
+            @extend %fadeInUp;
+            animation-delay: 0.2s;
+        }
+        
+        // Стили параграфа с анимацией
+        p {
+            font-size: 1.8rem;
+            color: $gray;
+            margin: 0 0 $space-md 0;
+            font-weight: $light;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+            // Применяем анимацию
+            @extend %fadeInUp;
+            animation-delay: 0.4s;
+        }
+        
+        // Стили кнопки с анимацией
+        button {
+            display: inline-block;
+            padding: $space-sm $space-lg;
+            background-color: $white;
+            color: $black;
+            font-weight: $medium;
+            border: none;
+            cursor: pointer;
+            transition: background-color $transition-normal ease,
+                        transform $transition-normal ease;
+            // Применяем анимацию
+            @extend %fadeInUp;
+            animation-delay: 0.6s;
+            
+            &:hover {
+                background-color: darken($white, 10%); // SCSS функция для затемнения цвета
+                transform: translateY(-5px);
+            }
+        }
+    }
+    
+    // Адаптивность для разных экранов
+    @include respond-to($desktop) {
+        .hero-content {
+            max-width: 70%;
+            padding: $space-lg;
+            
+            h1 { font-size: 2.8rem; }
+            p { font-size: 1.5rem; }
+        }
+    }
+    
+    @include respond-to($tablet) {
+        height: 60vh;
+        
+        .hero-content {
+            max-width: 80%;
+            padding: $space-md;
+            
+            h1 { font-size: 2.2rem; }
+            p { font-size: 1.2rem; }
+            button { padding: $space-sm; }
+        }
+    }
+    
+    @include respond-to($mobile) {
+        height: 50vh;
+        
+        .hero-content {
+            max-width: 90%;
+            padding: $space-md $space-sm;
+            
+            h1 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
+        }
+    }
+}

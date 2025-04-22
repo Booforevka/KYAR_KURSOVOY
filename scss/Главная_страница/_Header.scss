@@ -1,0 +1,178 @@
+header {
+    width: 100%;
+    height: $header-height;
+    position: sticky;
+    top: 0;
+    background-color: $white;
+    z-index: 100;
+    box-shadow: $shadow-sm;
+    
+    // Используем вложенность для улучшения читаемости кода
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        max-width: $container-width;
+        margin: 0 auto;
+        padding: 0 $space-md;
+        
+        // Вложенность для .nav-links
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            // Медиа-запрос внутри селектора
+            @media (max-width: $mobile) {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: $white;
+                padding: $space-md 0;
+                box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+                
+                .logo {
+                    display: none;
+                }
+                
+                &.active {
+                    display: flex;
+                }
+            }
+        }
+        
+        // Общие стили для ссылок
+        a {
+            padding: $space-xs $space-sm;
+            margin: 0 $space-xs;
+            text-decoration: none;
+            color: $black;
+            font-weight: $medium;
+            transition: color $transition-fast ease;
+            position: relative;
+            
+            &:hover {
+                color: $blue;
+                
+                // Исползуем псевдоэлемент через амперсанд для наведения
+                &::after {
+                    transform: scaleX(1);
+                    opacity: 1;
+                }
+            }
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $blue;
+                transform: scaleX(0);
+                opacity: 0;
+                transition: transform $transition-normal ease, opacity $transition-normal ease;
+                transform-origin: center;
+            }
+        }
+        
+        // Стили логотипа
+        .logo {
+            height: $header-height;
+            width: auto;
+            margin: 0 $space-md;
+            object-fit: contain;
+            transition: transform $transition-normal ease;
+            
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+    
+    // Адаптация под мобильные устройства
+    @media (max-width: $mobile) {
+        height: auto;
+        position: relative;
+        padding: $space-xs 0;
+        
+        nav {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 $space-md;
+            
+            .logo {
+                height: 30px;
+                margin: 0;
+                order: -1;
+            }
+        }
+    }
+}
+
+// Используем миксин для бургер-меню
+@mixin burger-line {
+    display: block;
+    height: 2px;
+    width: 25px;
+    background-color: $black;
+    margin: 5px 0;
+    transition: all $transition-fast ease;
+}
+
+// Бургер-меню
+.burger {
+    display: none; // По умолчанию скрыт
+    align-items: center;
+    gap: $space-xs;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $space-xs;
+    z-index: 101;
+    position: relative;
+    
+    @media (max-width: $mobile) {
+        display: flex; // Показываем только на мобильных
+    }
+    
+    // Стили иконки бургера
+    .burger-icon {
+        width: 24px;
+        height: 24px;
+        transition: transform $transition-normal ease;
+        
+        rect {
+            transition: all $transition-fast ease;
+            transform-origin: center;
+        }
+    }
+    
+    // Текст бургера
+    .burger-text {
+        font-family: $font-primary;
+        font-size: 1rem;
+        font-weight: $medium;
+        color: $black;
+    }
+    
+    // Состояние открытого меню
+    &.active {
+        .burger-icon {
+            .line1 {
+                transform: translateX(-20px) translateY(20px) rotate(45deg);
+            }
+            .line2 {
+                opacity: 0;
+            }
+            .line3 {
+                transform: translateX(-20px) translateY(-20px) rotate(-45deg);
+            }
+        }
+    }
+}

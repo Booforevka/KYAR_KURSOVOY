@@ -1,0 +1,103 @@
+// Секция услуг
+.services {
+    padding: $space-xl 0;
+    background-color: $light-gray;
+    
+    // Сетка карточек
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $space-lg;
+        
+        // Адаптивные стили с помощью медиа-запросов SCSS
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    // Карточка услуг
+    .card {
+        border-radius: $radius-md;
+        overflow: hidden;
+        box-shadow: $shadow-md;
+        transition: transform $transition-normal ease, box-shadow $transition-normal ease;
+        
+        // Эффект при наведении
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: $shadow-lg;
+            
+            // Увеличение изображения при наведении на карточку
+            .card-image img {
+                transform: scale(1.05);
+            }
+        }
+        
+        // Контейнер для изображения
+        &-image {
+            height: 200px;
+            overflow: hidden;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform $transition-slow ease;
+            }
+            
+            // Адаптивная высота изображения
+            @media (max-width: $desktop) {
+                height: 180px;
+            }
+            
+            @media (max-width: $tablet) {
+                height: 160px;
+            }
+        }
+        
+        // Контейнер для текста карточки
+        &-body {
+            padding: $space-md;
+            
+            h3 {
+                font-size: 1.5rem;
+                color: $dark-gray;
+                margin: 0 0 $space-sm 0;
+                font-weight: $medium;
+                
+                @media (max-width: $desktop) {
+                    font-size: 1.3rem;
+                }
+            }
+            
+            p {
+                font-size: 1rem;
+                color: $medium-gray;
+                margin: 0 0 $space-md 0;
+                line-height: $line-height;
+            }
+            
+            a {
+                display: inline-block;
+                color: $blue;
+                text-decoration: none;
+                font-weight: $medium;
+                transition: color $transition-fast ease;
+                
+                &:hover {
+                    color: darken($blue, 15%); // SCSS функция для затемнения
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        // Адаптивные стили для мобильных
+        @media (max-width: $mobile) {
+            max-width: 100%;
+        }
+    }
+}

@@ -1,0 +1,91 @@
+// Стили для подвала сайта
+footer {
+    background-color: $black;
+    color: $white;
+    padding: $space-lg 0;
+    
+    // Контейнер для содержимого
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        // Адаптивные стили для мобильных
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+    
+    // Ссылки в футере
+    &-links {
+        display: flex;
+        flex-wrap: wrap;
+        
+        // Адаптация под разные экраны
+        @media (max-width: $tablet) {
+            margin-bottom: $space-md;
+            justify-content: center;
+            
+            a {
+                margin: 0 $space-sm $space-xs 0;
+            }
+        }
+        
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            align-items: center;
+            
+            a {
+                margin: $space-xs 0;
+            }
+        }
+        
+        // Стили для ссылок
+        a {
+            color: $white;
+            text-decoration: none;
+            margin-right: $space-md;
+            padding: $space-xs 0;
+            transition: color $transition-fast ease;
+            
+            &:hover {
+                color: $gray;
+            }
+        }
+    }
+    
+    // Социальные иконки
+    .social {
+        display: flex;
+        align-items: center;
+        
+        // Адаптация под мобильные
+        @media (max-width: $tablet) {
+            margin-top: $space-sm;
+        }
+        
+        // Стили для иконок
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin-left: $space-sm;
+            color: $white;
+            border-radius: 50%;
+            transition: background-color $transition-normal ease,
+                        transform $transition-normal ease;
+            
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                transform: translateY(-3px);
+            }
+        }
+    }
+    
+    // Общие адаптивные стили для футера
+    @media (max-width: $mobile) {
+        padding: $space-md 0;
+    }
+}

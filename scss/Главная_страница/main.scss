@@ -1,0 +1,30 @@
+// Импорт переменных первым (для доступности во всех файлах)
+@import '_variables.scss';
+
+// Импорт компонентов
+@import '_animations.scss';  // Перемещаем перед другими, чтобы использовать плейсхолдеры
+@import '_Header.scss';
+@import '_main-content.scss';
+@import '_services.scss';
+@import '_footer.scss';
+
+// Глобальные стили
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: $font-primary;
+    font-size: $base-size;
+    line-height: $line-height;
+    color: $dark-gray;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
