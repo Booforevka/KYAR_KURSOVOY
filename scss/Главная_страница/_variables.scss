@@ -1,51 +1,92 @@
-// Colors
+// Цвета
 $black: #000000;
 $white: #ffffff;
 $gray: #d1d1d1;
 $dark-gray: #333333;
 $medium-gray: #666666;
 $light-gray: #f5f5f5;
+$audi-red: #bb0a30;
 $blue: #0066cc;
 
-// Typography
+// Типографика
 $font-primary: 'Roboto', Arial, sans-serif;
 $base-size: 16px;
 $line-height: 1.5;
 
-// Font weights
+// Толщина шрифта
 $light: 300;
 $regular: 400;
 $medium: 500;
 $bold: 700;
 
-// Spacing
+// Отступы
 $space-xs: 0.5rem;
 $space-sm: 1rem;
 $space-md: 1.5rem;
 $space-lg: 2rem;
 $space-xl: 3rem;
 
-// Layout
+// Макет
 $container-width: 1200px;
 $header-height: 5vh;
 
-// Breakpoints
+// Точки перелома
 $mobile: 480px;
 $tablet: 768px;
 $desktop: 992px;
 $large: 1200px;
 
-// Animation
+// Анимации
 $transition-fast: 0.2s;
 $transition-normal: 0.3s;
 $transition-slow: 0.5s;
 
-// Border radius
+// Радиусы границ
 $radius-sm: 0.25rem;
 $radius-md: 0.5rem;
 $radius-lg: 1rem;
 
-// Box shadow
+// Тени
 $shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 $shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 $shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+// Миксины
+@mixin respond-to($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Миксин для плавных переходов
+@mixin transition($property: all, $duration: $transition-normal, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Миксин для стилей ссылок
+@mixin link-styles($color: $black, $hover-color: $blue) {
+  color: $color;
+  text-decoration: none;
+  @include transition(color);
+  
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+// Миксин для гибкого позиционирования
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Миксин для абсолютного центрирования
+@mixin center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

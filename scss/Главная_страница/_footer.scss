@@ -16,8 +16,7 @@ footer {
         }
     }
     
-    // Ссылки в футере
-    &-links {
+    .footer-links {
         display: flex;
         flex-wrap: wrap;
         
@@ -87,5 +86,14 @@ footer {
     // Общие адаптивные стили для футера
     @media (max-width: $mobile) {
         padding: $space-md 0;
+        
+        .footer-links {
+            flex-direction: column;
+            align-items: center;
+            
+            a {
+                margin: $space-xs 0;
+            }
+        }
     }
 }

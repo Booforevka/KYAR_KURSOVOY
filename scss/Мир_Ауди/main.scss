@@ -1,0 +1,55 @@
+// Импортируем переменные первыми
+@import '../Главная_страница/variables';
+
+// Импортируем анимации перед компонентами
+@import '_animations.scss';
+
+// Импортируем компоненты
+@import '../Главная_страница/Header';
+@import '_content.scss';
+@import '../Главная_страница/footer';
+
+// Глобальные стили
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: $font-primary;
+  font-size: $base-size;
+  line-height: $line-height;
+  color: $dark-gray;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Общие классы и утилиты
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// Анимированные появления по мере прокрутки
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

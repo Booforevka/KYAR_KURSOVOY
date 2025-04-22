@@ -1,7 +1,19 @@
-.hero .hero-content button, .hero .hero-content p, .hero .hero-content h1 {
+.history h2, .model-description .description-text, .hero-description h2 {
   animation: fadeInUp 0.8s forwards;
   opacity: 0;
   transform: translateY(20px);
+}
+
+.history-text, .hero-description-text {
+  animation: fadeInLeft 0.8s forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.history-image, .hero-description-image {
+  animation: fadeInRight 0.8s forwards;
+  opacity: 0;
+  transform: translateX(20px);
 }
 
 @keyframes fadeIn {
@@ -32,6 +44,91 @@
     transform: translateY(0);
   }
 }
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+[data-aos] {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos=fade-up] {
+  transform: translateY(20px);
+}
+
+[data-aos=fade-down] {
+  transform: translateY(-20px);
+}
+
+[data-aos=fade-left] {
+  transform: translateX(-20px);
+}
+
+[data-aos=fade-right] {
+  transform: translateX(20px);
+}
+
+[data-aos-delay="100"] {
+  transition-delay: 0.1s;
+}
+
+[data-aos-delay="200"] {
+  transition-delay: 0.2s;
+}
+
+[data-aos-delay="300"] {
+  transition-delay: 0.3s;
+}
+
+[data-aos-delay="400"] {
+  transition-delay: 0.4s;
+}
+
+[data-aos-delay="500"] {
+  transition-delay: 0.5s;
+}
+
+[data-aos-delay="600"] {
+  transition-delay: 0.6s;
+}
+
+[data-aos-delay="700"] {
+  transition-delay: 0.7s;
+}
+
+[data-aos-delay="800"] {
+  transition-delay: 0.8s;
+}
+
+[data-aos-delay="900"] {
+  transition-delay: 0.9s;
+}
+
+[data-aos-delay="1000"] {
+  transition-delay: 1s;
+}
+
 header {
   width: 100%;
   height: 5vh;
@@ -181,198 +278,136 @@ header nav .logo:hover {
   padding: 0 1.5rem;
 }
 
-.hero {
-  background-image: url(../../images/403726-2025-audi-a7.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 70vh;
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+.hero-description {
+  padding: 3rem 0;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
-}
-.hero .hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 3rem;
-  max-width: 50%;
-}
-.hero .hero-content h1 {
-  font-size: 3.5rem;
-  color: #ffffff;
-  margin: 0 0 1rem 0;
-  font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  animation-delay: 0.2s;
-}
-.hero .hero-content p {
-  font-size: 1.8rem;
-  color: #d1d1d1;
-  margin: 0 0 1.5rem 0;
-  font-weight: 300;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  animation-delay: 0.4s;
-}
-.hero .hero-content button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: #ffffff;
+.hero-description h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #000000;
   font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  animation-delay: 0.6s;
-}
-.hero .hero-content button:hover {
-  background-color: #e6e6e6;
-  transform: translateY(-5px);
-}
-@media (max-width: 992px) {
-  .hero .hero-content {
-    max-width: 70%;
-    padding: 2rem;
-  }
-  .hero .hero-content h1 {
-    font-size: 2.8rem;
-  }
-  .hero .hero-content p {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 768px) {
-  .hero {
-    height: 60vh;
-  }
-  .hero .hero-content {
-    max-width: 80%;
-    padding: 1.5rem;
-  }
-  .hero .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .hero .hero-content p {
-    font-size: 1.2rem;
-  }
-  .hero .hero-content button {
-    padding: 1rem;
-  }
 }
 @media (max-width: 480px) {
-  .hero {
-    height: 50vh;
+  .hero-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
-  .hero .hero-content {
-    max-width: 90%;
-    padding: 1.5rem 1rem;
+}
+.hero-description-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .hero-description-content {
+    flex-direction: column-reverse;
   }
-  .hero .hero-content h1 {
-    font-size: 1.8rem;
+}
+.hero-description-text {
+  flex: 1;
+}
+.hero-description-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333333;
+}
+@media (max-width: 480px) {
+  .hero-description-text p {
+    font-size: 1rem;
   }
-  .hero .hero-content p {
+}
+.hero-description-image {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+.hero-description-image img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.model-description {
+  padding: 2rem 0;
+  background-color: #f5f5f5;
+}
+.model-description .description-text {
+  max-width: 800px;
+  margin: 0 auto;
+  animation-delay: 0.2s;
+}
+.model-description .description-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333333;
+}
+@media (max-width: 480px) {
+  .model-description .description-text p {
     font-size: 1rem;
   }
 }
 
-.services {
+.history {
   padding: 3rem 0;
-  background-color: #f5f5f5;
 }
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.history h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #000000;
+  font-weight: 500;
+}
+@media (max-width: 480px) {
+  .history h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+.history-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .history-content {
+    flex-direction: column-reverse;
   }
+}
+.history-text {
+  flex: 1;
+}
+.history-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333333;
 }
 @media (max-width: 480px) {
-  .services-grid {
-    grid-template-columns: 1fr;
+  .history-text p {
+    font-size: 1rem;
   }
 }
-.services .card {
+.history-image {
+  flex: 1;
+  overflow: hidden;
   border-radius: 0.5rem;
-  overflow: hidden;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.services .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-.services .card:hover .card-image img {
-  transform: scale(1.05);
-}
-.services .card-image {
-  height: 200px;
-  overflow: hidden;
-}
-.services .card-image img {
+.history-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: transform 0.5s ease;
-}
-@media (max-width: 992px) {
-  .services .card-image {
-    height: 180px;
-  }
-}
-@media (max-width: 768px) {
-  .services .card-image {
-    height: 160px;
-  }
-}
-.services .card-body {
-  padding: 1.5rem;
-}
-.services .card-body h3 {
-  font-size: 1.5rem;
-  color: #333333;
-  margin: 0 0 1rem 0;
-  font-weight: 500;
-}
-@media (max-width: 992px) {
-  .services .card-body h3 {
-    font-size: 1.3rem;
-  }
-}
-.services .card-body p {
-  font-size: 1rem;
-  color: #666666;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.5;
-}
-.services .card-body a {
-  display: inline-block;
-  color: #0066cc;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-.services .card-body a:hover {
-  color: #004080;
-  text-decoration: underline;
-}
-@media (max-width: 480px) {
-  .services .card {
-    max-width: 100%;
-  }
 }
 
 footer {
@@ -477,4 +512,25 @@ html, body {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }/*# sourceMappingURL=main.css.map */

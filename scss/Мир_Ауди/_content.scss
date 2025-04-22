@@ -1,0 +1,148 @@
+// Контейнер для всех секций
+.container {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 $space-md;
+  }
+  
+  // Главная секция
+// Главная секция
+// Объединенная секция hero и description
+.hero-description {
+    padding: $space-xl 0;
+    
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: $space-lg;
+        color: $black;
+        font-weight: $medium;
+        @extend %fadeInUp;
+        
+        @include respond-to($mobile) {
+            font-size: 1.5rem;
+            margin-bottom: $space-md;
+        }
+    }
+    
+    &-content {
+        @include flex(row, space-between, center, wrap);
+        gap: $space-lg;
+        
+        @include respond-to($tablet) {
+            flex-direction: column-reverse;
+        }
+    }
+    
+    &-text {
+        flex: 1;
+        @extend %fadeInLeft;
+        
+        p {
+            margin-bottom: $space-md;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: $dark-gray;
+            
+            @include respond-to($mobile) {
+                font-size: 1rem;
+            }
+        }
+    }
+    
+    &-image {
+        flex: 1;
+        overflow: hidden;
+        border-radius: $radius-md;
+        box-shadow: $shadow-md;
+        @extend %fadeInRight;
+        
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+}
+  
+  // Секция описания модели
+  .model-description {
+    padding: $space-lg 0;
+    background-color: $light-gray;
+    
+    .description-text {
+      max-width: 800px;
+      margin: 0 auto;
+      @extend %fadeInUp;
+      animation-delay: 0.2s;
+      
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: $dark-gray;
+        
+        @include respond-to($mobile) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  
+  // Секция истории
+  .history {
+    padding: $space-xl 0;
+    
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: $space-lg;
+      color: $black;
+      font-weight: $medium;
+      @extend %fadeInUp;
+      
+      @include respond-to($mobile) {
+        font-size: 1.5rem;
+        margin-bottom: $space-md;
+      }
+    }
+    
+    &-content {
+      @include flex(row, space-between, center, wrap);
+      gap: $space-lg;
+      
+      @include respond-to($tablet) {
+        flex-direction: column-reverse;
+      }
+    }
+    
+    &-text {
+      flex: 1;
+      @extend %fadeInLeft;
+      
+      p {
+        margin-bottom: $space-md;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: $dark-gray;
+        
+        @include respond-to($mobile) {
+          font-size: 1rem;
+        }
+      }
+    }
+    
+    &-image {
+      flex: 1;
+      overflow: hidden;
+      border-radius: $radius-md;
+      box-shadow: $shadow-md;
+      @extend %fadeInRight;
+      
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
