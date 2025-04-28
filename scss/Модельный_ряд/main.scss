@@ -1,0 +1,65 @@
+@import '../../scss/Главная_страница/variables';
+@import '../../scss/Главная_страница/Header';
+@import '../../scss/Главная_страница/footer';
+@import 'catalog';
+@import 'filters';
+
+// Общие стили
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-primary;
+    font-size: $base-size;
+    line-height: $line-height;
+    color: $black;
+    background-color: $white;
+}
+
+.container {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 $space-md;
+}
+
+.btn {
+    display: inline-block;
+    padding: $space-xs $space-md;
+    border-radius: $radius-sm;
+    font-family: $font-primary;
+    font-weight: $medium;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    @include transition(all);
+    
+    &-primary {
+        background-color: $blue;
+        color: $white;
+        border: 1px solid $blue;
+        
+        &:hover {
+            background-color: darken($blue, 10%);
+        }
+    }
+    
+    &-secondary {
+        background-color: $white;
+        color: $dark-gray;
+        border: 1px solid $gray;
+        
+        &:hover {
+            background-color: $light-gray;
+        }
+    }
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: $bold;
+    margin-bottom: $space-lg;
+    text-align: center;
+}

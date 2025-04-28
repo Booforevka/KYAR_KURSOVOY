@@ -1,0 +1,163 @@
+.filters {
+    padding: $space-md;
+    background-color: $light-gray;
+    margin-bottom: $space-lg;
+    border-radius: $radius-md;
+    
+    &-container {
+        @include flex(column);
+        gap: $space-md;
+    }
+    
+    &-header {
+        @include flex(row, space-between, center);
+        margin-bottom: $space-sm;
+        
+        h2 {
+            font-size: 1.25rem;
+            font-weight: $medium;
+            margin: 0;
+        }
+        
+        button {
+            background: none;
+            border: none;
+            color: $blue;
+            cursor: pointer;
+            font-size: 0.875rem;
+            @include transition(color);
+            
+            &:hover {
+                color: darken($blue, 10%);
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: $space-md;
+        
+        @include respond-to($mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    &-group {
+        @include flex(column);
+        gap: $space-xs;
+        
+        label {
+            font-size: 0.875rem;
+            font-weight: $medium;
+            margin-bottom: $space-xs;
+        }
+        
+        select, input {
+            width: 100%;
+            padding: $space-xs;
+            border: 1px solid $gray;
+            border-radius: $radius-sm;
+            outline: none;
+            font-family: $font-primary;
+            @include transition(border-color);
+            
+            &:focus {
+                border-color: $blue;
+            }
+        }
+        
+        &-range {
+            @include flex(column);
+            gap: $space-xs;
+            
+            .range-values {
+                @include flex(row, space-between);
+                font-size: 0.75rem;
+                color: $medium-gray;
+            }
+            
+            input[type="range"] {
+                height: 4px;
+                background: $gray;
+                border-radius: $radius-sm;
+                outline: none;
+                padding: 0;
+                margin: $space-xs 0;
+                
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    background: $blue;
+                    cursor: pointer;
+                }
+                
+                &::-moz-range-thumb {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    background: $blue;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        &-checkboxes {
+            @include flex(column);
+            gap: $space-xs;
+            
+            .checkbox-item {
+                @include flex(row, flex-start, center);
+                gap: $space-xs;
+                
+                input[type="checkbox"] {
+                    width: auto;
+                }
+                
+                label {
+                    margin-bottom: 0;
+                    font-weight: $regular;
+                }
+            }
+        }
+    }
+    
+    &-actions {
+        @include flex(row, flex-end, center);
+        gap: $space-sm;
+        margin-top: $space-sm;
+        
+        button {
+            padding: $space-xs $space-md;
+            border-radius: $radius-sm;
+            font-family: $font-primary;
+            font-weight: $medium;
+            cursor: pointer;
+            @include transition(all);
+            
+            &.apply {
+                background-color: $blue;
+                color: $white;
+                border: 1px solid $blue;
+                
+                &:hover {
+                    background-color: darken($blue, 10%);
+                }
+            }
+            
+            &.reset {
+                background-color: $white;
+                color: $dark-gray;
+                border: 1px solid $gray;
+                
+                &:hover {
+                    background-color: $light-gray;
+                }
+            }
+        }
+    }
+}

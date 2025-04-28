@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <cars>
+    <car>
+      <id>a3-sportback</id>
+      <model>A3</model>
+      <type>Sportback</type>
+      <price>34690</price>
+      <image>Audi_A3_Sedan.png</image>
+      <engine>1.4 TFSI (150 л.с.)</engine>
+      <acceleration>8.2</acceleration>
+      <consumption>5.8</consumption>
+      <drivetrain>передний</drivetrain>
+    </car>
+    <car>
+      <id>a3-sedan</id>
+      <model>A3</model>
+      <type>Sedan</type>
+      <price>34690</price>
+      <image>Audi_A3_Sportback.png</image>
+      <engine>1.4 TFSI (150 л.с.)</engine>
+      <acceleration>8.4</acceleration>
+      <consumption>5.9</consumption>
+      <drivetrain>передний</drivetrain>
+    </car>
+    <car>
+      <id>a4-sedan</id>
+      <model>A4</model>
+      <type>Sedan</type>
+      <price>40430</price>
+      <image>Audi_A4_Sedan.png</image>
+      <engine>2.0 TFSI (190 л.с.)</engine>
+      <acceleration>7.3</acceleration>
+      <consumption>6.1</consumption>
+      <drivetrain>передний</drivetrain>
+    </car>
+    <car>
+      <id>a6-sedan</id>
+      <model>A6</model>
+      <type>Sedan</type>
+      <price>57640</price>
+      <image>Audi_A6_Sedan.png</image>
+      <engine>2.0 TFSI (245 л.с.)</engine>
+      <acceleration>6.8</acceleration>
+      <consumption>6.5</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>a7-sportback</id>
+      <model>A7</model>
+      <type>Sportback</type>
+      <price>80780</price>
+      <image>Audi_A7_Sportback.png</image>
+      <engine>3.0 TFSI (340 л.с.)</engine>
+      <acceleration>5.3</acceleration>
+      <consumption>7.2</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>a8</id>
+      <model>A8</model>
+      <type>Sedan</type>
+      <price>100370</price>
+      <image>Audi_A8.png</image>
+      <engine>3.0 TFSI (340 л.с.)</engine>
+      <acceleration>5.7</acceleration>
+      <consumption>7.7</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q3</id>
+      <model>Q3</model>
+      <type>SUV</type>
+      <price>38690</price>
+      <image>Audi_Q3.png</image>
+      <engine>2.0 TFSI (180 л.с.)</engine>
+      <acceleration>8.2</acceleration>
+      <consumption>6.7</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q3-sportback</id>
+      <model>Q3</model>
+      <type>Sportback</type>
+      <price>43200</price>
+      <image>Audi_Q3_Sportback.png</image>
+      <engine>2.0 TFSI (180 л.с.)</engine>
+      <acceleration>8.3</acceleration>
+      <consumption>6.8</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q5</id>
+      <model>Q5</model>
+      <type>SUV</type>
+      <price>69859</price>
+      <image>Audi_Q5.png</image>
+      <engine>2.0 TFSI (249 л.с.)</engine>
+      <acceleration>6.3</acceleration>
+      <consumption>7.1</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q5-sportback</id>
+      <model>Q5</model>
+      <type>Sportback</type>
+      <price>75061</price>
+      <image>Audi_Q5_Sportback.png</image>
+      <engine>2.0 TFSI (249 л.с.)</engine>
+      <acceleration>6.4</acceleration>
+      <consumption>7.2</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q7</id>
+      <model>Q7</model>
+      <type>SUV</type>
+      <price>104971</price>
+      <image>Audi_Q7.png</image>
+      <engine>3.0 TFSI (340 л.с.)</engine>
+      <acceleration>6.1</acceleration>
+      <consumption>8.1</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q8</id>
+      <model>Q8</model>
+      <type>SUV</type>
+      <price>102284</price>
+      <image>Audi_Q8.png</image>
+      <engine>3.0 TFSI (340 л.с.)</engine>
+      <acceleration>5.9</acceleration>
+      <consumption>8.3</consumption>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q8-e-tron</id>
+      <model>Q8</model>
+      <type>e-tron</type>
+      <price>123339</price>
+      <image>Audi_Q8_SUV_e-tron.png</image>
+      <engine>Электрический (408 л.с.)</engine>
+      <acceleration>5.7</acceleration>
+      <consumption>21.4 кВт·ч/100 км</consumption>
+      <range>400</range>
+      <drivetrain>quattro</drivetrain>
+    </car>
+    <car>
+      <id>q8-sportback-e-tron</id>
+      <model>Q8</model>
+      <type>Sportback e-tron</type>
+      <price>126660</price>
+      <image>Audi_Q8_Sportback_e-tron.png</image>
+      <engine>Электрический (408 л.с.)</engine>
+      <acceleration>5.7</acceleration>
+      <consumption>20.9 кВт·ч/100 км</consumption>
+      <range>410</range>
+      <drivetrain>quattro</drivetrain>
+    </car>
+  </cars>
+</catalog>

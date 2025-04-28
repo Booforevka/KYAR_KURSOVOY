@@ -1,0 +1,263 @@
+.catalog {
+    padding: $space-lg 0;
+    background-color: $white;
+    
+    &-container {
+        max-width: $container-width;
+        margin: 0 auto;
+        padding: 0 $space-md;
+    }
+    
+    &-header {
+        @include flex(row, space-between, center);
+        margin-bottom: $space-lg;
+        
+        h1 {
+            font-size: 1.75rem;
+            font-weight: $bold;
+            margin: 0;
+        }
+        
+        @include respond-to($tablet) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $space-md;
+        }
+    }
+    
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: $space-lg;
+        
+        @include respond-to($mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    // Стили для карточки автомобиля
+    &-card {
+        background-color: $white;
+        border-radius: $radius-sm;
+        overflow: hidden;
+        @include transition(all);
+        box-shadow: $shadow-sm;
+        cursor: pointer;
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: $shadow-md;
+        }
+        
+        &-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: $light-gray;
+            @include transition(transform);
+            
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+        
+        &-content {
+            padding: $space-md;
+        }
+        
+        &-title {
+            font-size: 1.25rem;
+            font-weight: $bold;
+            margin: 0 0 $space-xs;
+            @include flex(row, flex-start, center);
+            
+            span {
+                font-size: 1rem;
+                margin-left: $space-xs;
+                font-weight: $medium;
+                color: $dark-gray;
+            }
+        }
+        
+        &-price {
+            font-size: 1.125rem;
+            font-weight: $bold;
+            margin-bottom: $space-md;
+        }
+        
+        &-specs {
+            @include flex(column);
+            gap: $space-xs;
+            font-size: 0.875rem;
+            
+            div {
+                @include flex(row, space-between);
+                color: $medium-gray;
+                
+                span:first-child {
+                    color: $dark-gray;
+                }
+            }
+        }
+    }
+    
+    // Стили для пагинации
+    &-pagination {
+        @include flex(row, center, center);
+        margin-top: $space-xl;
+        gap: $space-xs;
+        
+        button {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: $radius-sm;
+            border: 1px solid $gray;
+            background-color: $white;
+            cursor: pointer;
+            @include transition(all);
+            
+            &:hover {
+                background-color: $light-gray;
+            }
+            
+            &.active {
+                background-color: $blue;
+                color: $white;
+                border-color: $blue;
+            }
+        }
+    }
+}
+// Дополнение к файлу _catalog.scss для режима списка
+
+.catalog {
+    // [...существующие стили...]
+    
+    // Стили для режима списка
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: $space-md;
+        
+        .catalog-card {
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            align-items: center;
+            
+            @include respond-to($tablet) {
+                grid-template-columns: 150px 1fr;
+            }
+            
+            @include respond-to($mobile) {
+                grid-template-columns: 1fr;
+            }
+            
+            &-image {
+                height: 120px;
+                width: 200px;
+                object-fit: contain;
+                
+                @include respond-to($tablet) {
+                    width: 150px;
+                    height: 100px;
+                }
+                
+                @include respond-to($mobile) {
+                    width: 100%;
+                    height: 150px;
+                }
+            }
+            
+            &-content {
+                padding: $space-md;
+                
+                @include respond-to($mobile) {
+                    padding: $space-sm 0;
+                }
+            }
+            
+            &-specs {
+                @include flex(row, space-between, center, wrap);
+                gap: $space-md;
+                
+                div {
+                    @include flex(column);
+                    align-items: flex-start;
+                    gap: $space-xs;
+                    
+                    span:first-child {
+                        color: $medium-gray;
+                        font-size: 0.75rem;
+                    }
+                    
+                    span:last-child {
+                        color: $dark-gray;
+                        font-weight: $medium;
+                    }
+                }
+                
+                @include respond-to($tablet) {
+                    @include flex(column);
+                    align-items: flex-start;
+                }
+            }
+            
+            &-price {
+                font-size: 1.25rem;
+                font-weight: $bold;
+                margin-right: $space-md;
+                white-space: nowrap;
+                
+                @include respond-to($tablet) {
+                    grid-column: 2;
+                    grid-row: 1;
+                    margin-bottom: $space-sm;
+                }
+                
+                @include respond-to($mobile) {
+                    grid-column: 1;
+                }
+            }
+        }
+    }
+    
+    // Стили для переключателя вида каталога
+    &-view-switcher {
+        @include flex(row);
+        gap: $space-xs;
+        
+        button {
+            padding: $space-xs $space-sm;
+            border: 1px solid $gray;
+            background-color: $white;
+            cursor: pointer;
+            @include transition(all);
+            
+            &:first-child {
+                border-radius: $radius-sm 0 0 $radius-sm;
+            }
+            
+            &:last-child {
+                border-radius: 0 $radius-sm $radius-sm 0;
+            }
+            
+            &.active {
+                background-color: $blue;
+                color: $white;
+                border-color: $blue;
+            }
+        }
+    }
+    
+    // Стили для отсутствия результатов
+    .no-results {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: $space-xl;
+        color: $medium-gray;
+        font-size: 1.25rem;
+    }
+}
