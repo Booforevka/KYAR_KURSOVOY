@@ -7,9 +7,10 @@ class CarsCatalog {
             model: '',
             type: '',
             drivetrain: '',
+            instock: '',
             maxPrice: 130000
         };
-        this.itemsPerPage = 8;
+        this.itemsPerPage = 9;
         this.currentPage = 1;
         
         // DOM элементы
@@ -21,6 +22,7 @@ class CarsCatalog {
         this.modelFilter = document.getElementById('model-filter');
         this.typeFilter = document.getElementById('type-filter');
         this.drivetrainFilter = document.getElementById('drivetrain-filter');
+        this.instockFilter = document.getElementById('instock-filter');
         this.priceFilter = document.getElementById('price-filter');
         
         // Кнопки фильтров
@@ -75,37 +77,55 @@ class CarsCatalog {
     
     // Настройка обработчиков событий
     setupEventListeners() {
+        // Фильтры
         this.applyButton.addEventListener('click', () => this.applyFilters());
         this.resetButton.addEventListener('click', () => this.resetFilters());
         
+        // Обновление значения цены при изменении ползунка
+        if (this.priceFilter) {
+            this.priceFilter.addEventListener('input', (e) => {
+                const rangeValues = document.querySelector('.range-values span:last-child');
+                if (rangeValues) {
+                    rangeValues.textContent = `до ${this.formatPrice(parseInt(e.target.value))}`;
+                }
+            });
+        }
+        
         // Переключение видимости фильтров
-        this.toggleFiltersButton.addEventListener('click', () => {
-            const filtersGrid = document.querySelector('.filters-grid');
-            const filtersActions = document.querySelector('.filters-actions');
-            
-            if (filtersGrid.style.display === 'none') {
-                filtersGrid.style.display = 'grid';
-                filtersActions.style.display = 'flex';
-                this.toggleFiltersButton.textContent = 'Скрыть фильтры';
-            } else {
-                filtersGrid.style.display = 'none';
-                filtersActions.style.display = 'none';
-                this.toggleFiltersButton.textContent = 'Показать фильтры';
-            }
-        });
+        if (this.toggleFiltersButton) {
+            this.toggleFiltersButton.addEventListener('click', () => {
+                const filtersGrid = document.querySelector('.filters-grid');
+                const filtersActions = document.querySelector('.filters-actions');
+                
+                if (filtersGrid.style.display === 'none') {
+                    filtersGrid.style.display = 'grid';
+                    filtersActions.style.display = 'flex';
+                    this.toggleFiltersButton.textContent = 'Скрыть фильтры';
+                } else {
+                    filtersGrid.style.display = 'none';
+                    filtersActions.style.display = 'none';
+                    this.toggleFiltersButton.textContent = 'Показать фильтры';
+                }
+            });
+        }
         
         // Обработка клика на пагинацию
-        this.paginationContainer.addEventListener('click', (e) => {
-            if (e.target.tagName === 'BUTTON') {
-                this.currentPage = parseInt(e.target.textContent);
-                this.renderCars();
-                
-                // Активная кнопка пагинации
-                const buttons = this.paginationContainer.querySelectorAll('button');
-                buttons.forEach(btn => btn.classList.remove('active'));
-                e.target.classList.add('active');
-            }
-        });
+        if (this.paginationContainer) {
+            this.paginationContainer.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    this.currentPage = parseInt(e.target.textContent);
+                    this.renderCars();
+                    
+                    // Активная кнопка пагинации
+                    const buttons = this.paginationContainer.querySelectorAll('button');
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    // Прокрутка к началу каталога
+                    document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
     }
     
     // Парсинг XML
@@ -136,6 +156,7 @@ class CarsCatalog {
                     acceleration: parseFloat(this.getXmlValue(carNode, 'acceleration')),
                     consumption: this.getXmlValue(carNode, 'consumption'),
                     drivetrain: this.getXmlValue(carNode, 'drivetrain'),
+                    instock: this.getXmlValue(carNode, 'instock') === 'true',
                     range: this.getXmlValue(carNode, 'range') || null
                 };
             });
@@ -155,6 +176,7 @@ class CarsCatalog {
         this.filters.model = this.modelFilter.value;
         this.filters.type = this.typeFilter.value;
         this.filters.drivetrain = this.drivetrainFilter.value;
+        this.filters.instock = this.instockFilter.value;
         this.filters.maxPrice = parseInt(this.priceFilter.value);
         
         // Фильтруем автомобили
@@ -163,6 +185,7 @@ class CarsCatalog {
                 (this.filters.model === '' || car.model === this.filters.model) &&
                 (this.filters.type === '' || car.type === this.filters.type) &&
                 (this.filters.drivetrain === '' || car.drivetrain === this.filters.drivetrain) &&
+                (this.filters.instock === '' || car.instock === (this.filters.instock === 'true')) &&
                 car.price <= this.filters.maxPrice
             );
         });
@@ -177,19 +200,26 @@ class CarsCatalog {
         this.modelFilter.value = '';
         this.typeFilter.value = '';
         this.drivetrainFilter.value = '';
-        this.priceFilter.value = 8000000;
+        this.instockFilter.value = '';
+        this.priceFilter.value = 130000;
         
-        this.filters = {
-            model: '',
-            type: '',
-            drivetrain: '',
-            maxPrice: 8000000
-        };
-        
-        this.filteredCars = [...this.carsData];
-        this.currentPage = 1;
-        this.renderCars();
-    }
+       const rangeValues = document.querySelector('.range-values span:last-child');
+       if (rangeValues) {
+           rangeValues.textContent = `до 130 000€`;
+       }
+       
+       this.filters = {
+           model: '',
+           type: '',
+           drivetrain: '',
+           instock: '',
+           maxPrice: 130000
+       };
+       
+       this.filteredCars = [...this.carsData];
+       this.currentPage = 1;
+       this.renderCars();
+   }
     
     // Рендеринг автомобилей с учетом пагинации
     renderCars() {
@@ -212,21 +242,50 @@ class CarsCatalog {
             const carCard = this.createCarCard(car);
             this.carsContainer.appendChild(carCard);
         });
+        this.addCardEventListeners();
         
         // Обновляем пагинацию
         this.renderPagination();
+    }
+    addCardEventListeners() {
+        const cards = this.carsContainer.querySelectorAll('.catalog-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const carId = card.dataset.carId;
+                // Здесь можно добавить переход на страницу детального просмотра автомобиля
+                console.log(`Клик по карточке автомобиля с ID: ${carId}`);
+                
+                // Для примера показываем уведомление
+                this.showNotification(`Вы выбрали автомобиль: ${card.querySelector('.catalog-card-title').textContent.trim()}`);
+            });
+        });
     }
     
     // Создание карточки автомобиля
     createCarCard(car) {
         const template = this.cardTemplate.content.cloneNode(true);
+        const card = template.querySelector('.catalog-card');
+        
+        // Добавляем ID автомобиля как data-атрибут
+        card.dataset.carId = car.id;
         
         // Заполняем данными из XML
         template.querySelector('.catalog-card-image').src = car.image;
         template.querySelector('.catalog-card-image').alt = `${car.model} ${car.type}`;
         template.querySelector('.catalog-card-title .model').textContent = `Audi ${car.model}`;
         template.querySelector('.catalog-card-title .type').textContent = car.type;
-        template.querySelector('.catalog-card-price').textContent = `от ${this.formatPrice(car.price)} `;
+        template.querySelector('.catalog-card-price').textContent = `от ${this.formatPrice(car.price)}`;
+        
+        // Добавляем метку наличия
+        const instockElement = template.querySelector('.catalog-card-instock');
+        if (car.instock) {
+            instockElement.textContent = 'В наличии';
+            instockElement.classList.add('available');
+        } else {
+            instockElement.textContent = 'Под заказ';
+            instockElement.classList.add('unavailable');
+        }
         
         // Заполняем спецификации
         template.querySelector('.engine span:last-child').textContent = car.engine;
@@ -270,9 +329,12 @@ class CarsCatalog {
     }
 
     formatPrice(price) {
-        return price.toFixed(2)
-                   .replace('.', ',')
-                   .replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' €';
+        return new Intl.NumberFormat('ru-RU', {
+            style: 'currency',
+            currency: 'EUR',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(price);
     }
 }
 

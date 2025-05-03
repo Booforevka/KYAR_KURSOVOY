@@ -25,7 +25,7 @@
             <a href="Модельный_ряд.html">Модели</a>
             <img src="images/audi-logo.svg" alt="Audi" class="logo">
             <a href="Мир_Ауди.html">Мир Audi</a>
-            <a href="#">Контакты</a>
+            <a href="Контакты.html">Контакты</a>
           </div>
         </nav>
       </header>
@@ -82,6 +82,13 @@
                                     <option value="quattro">Полный (quattro)</option>
                                 </select>
                             </div>
+                            <div class="filters-group">
+                                <label for="instock-filter">Наличие</label>
+                                <select id="instock-filter">
+                                    <option value="">Все автомобили</option>
+                                    <option value="true">В наличии</option>
+                                </select>
+                            </div>
                             <div class="filters-group filters-group-range">
                                 <label for="price-filter">Цена, EUR</label>
                                 <div class="range-values">
@@ -120,7 +127,7 @@
                 <a href="Главная_страница.html">Главная</a>
                 <a href="Модельный_ряд.html">Модели</a>
                 <a href="Мир_Ауди.html">Мир Audi</a>
-                <a href="#">Контакты</a>
+                <a href="Контакты.html">Контакты</a>
             </div>
             <div class="social">
                 <a href="#">
@@ -151,7 +158,10 @@
                     <span class="model"></span>
                     <span class="type"></span>
                 </h3>
-                <div class="catalog-card-price"></div>
+                <div class="catalog-card-price-container">
+                    <div class="catalog-card-price"></div>
+                    <div class="catalog-card-instock"></div>
+                </div>
                 <div class="catalog-card-specs">
                     <div class="engine">
                         <span>Двигатель:</span>

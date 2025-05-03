@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initRevealOnScroll();
   });
   
-  /**
+  /*
    * Инициализация мобильного меню
    * Управляет открытием/закрытием бургер-меню на мобильных устройствах
    */
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  /**
+  /*
    * Инициализация анимаций при прокрутке
    * Активирует анимации элементов с атрибутом data-aos
    */
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  /**
+  /*
    * Инициализация появления элементов при прокрутке
    * Показывает элементы с классом .reveal при прокрутке до них
    */
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  /**
+  /*
    * Добавляем класс при прокрутке от верха страницы
    * Меняет стиль хедера при прокрутке
    */

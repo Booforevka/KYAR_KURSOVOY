@@ -11,6 +11,7 @@
       <acceleration>8.2</acceleration>
       <consumption>5.8</consumption>
       <drivetrain>передний</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>a3-sedan</id>
@@ -22,6 +23,7 @@
       <acceleration>8.4</acceleration>
       <consumption>5.9</consumption>
       <drivetrain>передний</drivetrain>
+      <instock>false</instock>
     </car>
     <car>
       <id>a4-sedan</id>
@@ -33,6 +35,7 @@
       <acceleration>7.3</acceleration>
       <consumption>6.1</consumption>
       <drivetrain>передний</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>a6-sedan</id>
@@ -44,6 +47,7 @@
       <acceleration>6.8</acceleration>
       <consumption>6.5</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>a7-sportback</id>
@@ -55,6 +59,7 @@
       <acceleration>5.3</acceleration>
       <consumption>7.2</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>false</instock>
     </car>
     <car>
       <id>a8</id>
@@ -66,6 +71,7 @@
       <acceleration>5.7</acceleration>
       <consumption>7.7</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>q3</id>
@@ -77,6 +83,7 @@
       <acceleration>8.2</acceleration>
       <consumption>6.7</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>q3-sportback</id>
@@ -88,6 +95,7 @@
       <acceleration>8.3</acceleration>
       <consumption>6.8</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>false</instock>
     </car>
     <car>
       <id>q5</id>
@@ -99,6 +107,7 @@
       <acceleration>6.3</acceleration>
       <consumption>7.1</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>q5-sportback</id>
@@ -110,6 +119,7 @@
       <acceleration>6.4</acceleration>
       <consumption>7.2</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>false</instock>
     </car>
     <car>
       <id>q7</id>
@@ -121,6 +131,7 @@
       <acceleration>6.1</acceleration>
       <consumption>8.1</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>q8</id>
@@ -132,6 +143,7 @@
       <acceleration>5.9</acceleration>
       <consumption>8.3</consumption>
       <drivetrain>quattro</drivetrain>
+      <instock>false</instock>
     </car>
     <car>
       <id>q8-e-tron</id>
@@ -144,6 +156,7 @@
       <consumption>21.4 кВт·ч/100 км</consumption>
       <range>400</range>
       <drivetrain>quattro</drivetrain>
+      <instock>true</instock>
     </car>
     <car>
       <id>q8-sportback-e-tron</id>
@@ -156,6 +169,7 @@
       <consumption>20.9 кВт·ч/100 км</consumption>
       <range>410</range>
       <drivetrain>quattro</drivetrain>
+      <instock>false</instock>
     </car>
   </cars>
 </catalog>

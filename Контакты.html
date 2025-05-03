@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audi</title>
-    <link rel="stylesheet" href="scss/Главная_страница/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Audi Дилер</title>
+    <link rel="stylesheet" href="scss/Контакты/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -33,49 +31,48 @@
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1>Audi A7 2025</h1>
-                <p>с выгодой 80 700 EUR</p>
-                <button>Подробнее</button>
+            <h1>Официальный дилер Audi</h1>
+        </section>
+
+        <section class="dealers">
+            <div class="container">
+                <div class="dealer-info">
+                    <h2>Audi Центр Минск</h2>
+                    <ul>
+                        <li>г. Минск, пр. Независимости, 198</li>
+                        <li>+375 29 191 88 88</li>
+                        <li>+375 17 311 88 88</li>
+                        <li><a href="mailto:clientaudi-minsk.by">clientaudi-minsk.by</a></li>
+                    </ul>
+                </div>
+
+                <div class="dealer-info">
+                    <h2>Audi Сервис Центр Серова</h2>
+                    <ul>
+                        <li>г. Минск, ул. Серова, 1</li>
+                        <li>+375 29 171 88 88 (моб, telegram)</li>
+                        <li>+375 17 309 88 88</li>
+                        <li><a href="mailto:clientaudi-serova.by">clientaudi-serova.by</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="services">
+        <section class="contact-form">
             <div class="container">
-                <div class="services-grid">
-                    <div class="card" data-aos="fade-up">
-                        <div class="card-image">
-                            <img src="images/service.png" alt="Сервис">
-                        </div>
-                        <div class="card-body">
-                            <h3>Audi Сервис</h3>
-                            <p>Забота о безупречности</p>
-                            <a href="#">Узнать больше &gt;</a>
-                        </div>
+                <h2>Введите запрос и мы ответим на него</h2>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <input type="text" id="name" name="name" placeholder="Фамилия" required>
+                        <input type="text" id="firstName" name="firstName" placeholder="Имя" required>
                     </div>
-                    
-                    <div class="card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-image">
-                            <img src="images/Тест-драйв.png" alt="Каталог автомобилей">
-                        </div>
-                        <div class="card-body">
-                            <h3>Каталог автомобилей</h3>
-                            <p>Модельный ряд</p>
-                            <a href="#">Узнать больше &gt;</a>
-                        </div>
+                    <div class="form-row">
+                        <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                        <button type="submit" id="submitBtn">Отправить</button>
                     </div>
-                    
-                    <div class="card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-image">
-                            <img src="images/Кузовной ремонт.png" alt="Кузовной ремонт">
-                        </div>
-                        <div class="card-body">
-                            <h3>Кузовной ремонт</h3>
-                            <p>Профессиональные мастера и лучшее оборудование</p>
-                            <a href="#">Узнать больше &gt;</a>
-                        </div>
-                    </div>
-                </div>
+                    <textarea id="description" name="description" placeholder="Описание" required></textarea>
+                </form>
+                <div id="formResult" class="result-message"></div>
             </div>
         </section>
     </main>
@@ -108,6 +105,33 @@
         </div>
     </footer>
 
-    <script src="js/Главная_страница/main-js.js"></script>
+    <script>
+        // Бургер-меню
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Обработка формы - только очистка полей
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Показываем результат пользователю
+    const formResult = document.getElementById('formResult');
+    formResult.innerHTML = "Ваш запрос будет рассмотрен в ближайшее время";
+    formResult.style.display = "block";
+    
+    // Очищаем форму
+    document.getElementById('contactForm').reset();
+    
+    // Скрываем сообщение через 3 секунды
+    setTimeout(() => {
+        formResult.style.display = "none";
+    }, 3000);
+});
+    </script>
 </body>
 </html>

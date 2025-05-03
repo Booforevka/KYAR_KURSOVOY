@@ -305,10 +305,31 @@ footer .social a:hover {
   font-weight: 500;
   color: #333333;
 }
+.catalog-card-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 1.5rem;
+}
 .catalog-card-price {
   font-size: 1.125rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+}
+.catalog-card-instock {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+.catalog-card-instock.available {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+.catalog-card-instock.not-available {
+  background-color: #ffebee;
+  color: #c62828;
 }
 .catalog-card-specs {
   display: flex;

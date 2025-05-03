@@ -79,10 +79,31 @@
             }
         }
         
+        &-price-container {
+            @include flex(row, space-between, center);
+            margin-bottom: $space-md;
+        }
+        
         &-price {
             font-size: 1.125rem;
             font-weight: $bold;
-            margin-bottom: $space-md;
+        }
+        
+        &-instock {
+            font-size: 0.875rem;
+            font-weight: $medium;
+            padding: $space-xs $space-sm;
+            border-radius: $radius-sm;
+            
+            &.available {
+                background-color: #e8f5e9;
+                color: #2e7d32;
+            }
+            
+            &.not-available {
+                background-color: #ffebee;
+                color: #c62828;
+            }
         }
         
         &-specs {
@@ -100,6 +121,7 @@
             }
         }
     }
+
     
     // Стили для пагинации
     &-pagination {
