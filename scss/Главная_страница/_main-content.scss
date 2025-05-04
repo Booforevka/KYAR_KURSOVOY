@@ -40,7 +40,7 @@
     // Содержимое героя (текст и кнопка)
     .hero-content {
         position: relative;
-        z-index: 2; // Поверх псевдоэлемента
+        z-index: 2; 
         padding: $space-xl;
         max-width: 50%;
         
@@ -68,10 +68,10 @@
             animation-delay: 0.4s;
         }
         
-        // Стили кнопки с анимацией
-        button {
+        a {
             display: inline-block;
             padding: $space-sm $space-lg;
+            text-decoration: none;
             background-color: $white;
             color: $black;
             font-weight: $medium;
@@ -79,7 +79,7 @@
             cursor: pointer;
             transition: background-color $transition-normal ease,
                         transform $transition-normal ease;
-            // Применяем анимацию
+
             @extend %fadeInUp;
             animation-delay: 0.6s;
             
