@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация анимаций при прокрутке
+
     initScrollAnimations();
     
-    // Инициализация мобильного меню
+
     initMobileMenu();
 });
 
-/**
- * Инициализация анимаций при прокрутке
- * Добавляет класс aos-animate при появлении элемента в области видимости
- */
 function initScrollAnimations() {
     // Элементы для анимации при прокрутке
     const animatedElements = document.querySelectorAll('[data-aos]');
